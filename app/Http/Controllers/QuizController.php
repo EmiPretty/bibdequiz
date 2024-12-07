@@ -36,8 +36,8 @@ class QuizController extends Controller
 
     public function destroy(Question $question)
     {
-        $question->responses()->delete(); // Supprimer toutes les réponses liées à la question
-        $question->delete(); // Supprimer la question
+        $question->responses()->delete(); 
+        $question->delete(); 
         return redirect()->route('quiz.index')->with('success', 'Question supprimée avec succès.');
     }
 

@@ -49,13 +49,13 @@
                 <form action="{{ route('quiz.addResponse', $question) }}" method="POST" class="mt-3">
                     @csrf
                     <div class="d-flex align-items-center">
-                        <input type="text" name="content" placeholder="Nouvelle réponse" class="form-control me-2" required>
-                        <button class="btn btn-primary btn-sm">Ajouter Réponse</button>
+                        <input type="text" name="content" placeholder="Nouvelle réponse" class="form-control me-2" style="width: 87%;"  required>
+                        <button class="btn btn-primary btn-sm">Ajouter une réponse</button>
                     </div>
                 </form>
 
-                <div class="mt-3 text-end">
-                    <button class="btn btn-primary btn-sm" onclick="confirmQuestion({{ $question->id }})">Confirmer</button>
+                <div class="mt-5 text-end">
+                    <button class="btn btn-primary btn-sm" onclick="confirm({{ $question->id }})">Valider </button>
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@
         }
     }
 
-    function confirmQuestion(questionId) {
+    function confirm(questionId) {
         const question = document.querySelector(`#question-${questionId}`);
         const responses = question.querySelectorAll('li');
         
@@ -93,7 +93,7 @@
             return false;
         }
 
-        alert('Question confirmée avec succès.');
+        alert('Confirmée avec succès.');
     }
 </script>
 @endsection
